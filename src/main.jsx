@@ -249,7 +249,38 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
   }
 }
 
-.ranking-list {\n  display: grid;\n  gap: 12px;\n}\n\n.ranking-card {\n  display: grid;\n  grid-template-columns: 48px 1fr;\n  gap: 13px;\n  align-items: center;\n  padding: 15px;\n  background: rgba(255,250,241,.8);\n  border: 1px solid rgba(86,99,51,.14);\n  border-radius: 20px;\n}\n\n.rank-number {\n  width: 44px;\n  height: 44px;\n  display: grid;\n  place-items: center;\n  border-radius: 15px;\n  background: #ead8bd;\n  color: #526033;\n  font-family: Georgia, serif;\n  font-weight: 800;\n  font-size: 19px;\n}\n\n.rank-1,\n.rank-2,\n.rank-3 {\n  background: linear-gradient(145deg, #78894c, #526233);\n  color: #fff9eb;\n  box-shadow: 0 7px 14px rgba(72,81,42,.17);\n}\n\n.ranking-heading {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  align-items: center;\n}\n\n.ranking-heading strong {\n  font-size: 17px;\n}\n\n.ranking-heading span {\n  color: #556432;\n  font-weight: 850;\n}\n\n.ranking-stats {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n  margin-top: 6px;\n  color: #7a7d68;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.ranking-stats span {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n\n.modal-backdrop {\n  position: fixed;\n  inset: 0;\n  z-index: 50;\n  background: rgba(38,44,27,.48);\n  display: grid;\n  place-items: center;\n  padding: 18px;\n  backdrop-filter: blur(7px);\n}\n\n.modal {\n  width: min(620px, 100%);\n  max-height: calc(100vh - 36px);\n  overflow-y: auto;\n  background: #fffaf1;\n  border: 1px solid rgba(95,105,60,.16);\n  border-radius: 28px;\n  padding: 20px;\n  box-shadow: 0 24px 80px rgba(25,30,18,.28);\n}\n\n.modal-header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n\n.modal h2 {\n  margin: 4px 0 0;\n  font-size: 30px;\n}\n\n.listening-check {\n  display: grid;\n  grid-template-columns: 34px 1fr;\n  align-items: center;\n  gap: 11px;\n  border: 1px solid rgba(89,101,54,.16);\n  border-radius: 18px;\n  padding: 14px;\n  background: #f7ead6;\n  cursor: pointer;\n}\n\n.listening-check input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n}\n\n.custom-check {\n  width: 32px;\n  height: 32px;\n  display: grid;\n  place-items: center;\n  border-radius: 11px;\n  color: transparent;\n  background: #eadcc7;\n  border: 1px solid rgba(81,94,48,.18);\n  transition: .15s ease;\n}\n\n.listening-check input:checked + .custom-check {\n  color: #fff9ed;\n  background: linear-gradient(145deg, #77894a, #4f6030);\n  box-shadow: inset 0 1px 0 rgba(255,255,255,.28);\n}\n\n.listening-check strong,\n.listening-check small {\n  display: block;\n}\n\n.listening-check small {\n  margin-top: 3px;\n  color: #747765;\n}\n\n.field {\n  display: block;\n  margin-top: 16px;\n}\n\n.field > span {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  margin-bottom: 7px;\n  font-weight: 800;\n  font-size: 13px;\n}\n\n.field b {\n  color: #6f7c49;\n  font-size: 11px;\n  text-transform: uppercase;\n  letter-spacing: .08em;\n}\n\ntextarea,\n.extra-row input {\n  width: 100%;\n  border: 1px solid rgba(84,98,50,.18);\n  border-radius: 15px;\n  padding: 12px 13px;\n  color: #323a22;\n  background: #fffdf8;\n  outline: none;\n}\n\ntextarea:focus,\n.extra-row input:focus,\n.student-picker select:focus {\n  border-color: #718148;\n  box-shadow: 0 0 0 3px rgba(113,129,72,.12);\n}\n\n.extras-section {\n  margin-top: 18px;\n  border-top: 1px solid rgba(91,101,60,.13);\n  padding-top: 17px;\n}\n\n.section-title {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: #61703e;\n  margin-bottom: 11px;\n}\n\n.section-title strong,\n.section-title span {\n  display: block;\n}\n\n.section-title span {\n  margin-top: 3px;\n  color: #7b7e6c;\n  font-size: 12px;\n}\n\n.extra-row {\n  display: grid;\n  grid-template-columns: 1fr auto;\n  gap: 8px;\n  margin-top: 9px;\n}\n\n.remove-extra {\n  width: 43px;\n  border: 1px solid rgba(80,94,46,.14);\n  border-radius: 13px;\n  background: #efe1cd;\n  color: #5d6841;\n}\n\n.add-extra {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n  margin-top: 11px;\n  border: none;\n  background: transparent;\n  color: #5f6f3c;\n  font-weight: 850;\n  padding: 7px 2px;\n}\n\n.error-message {\n  color: #7c332a;\n  background: #f6dfd7;\n  border: 1px solid #e8c6ba;\n  border-radius: 13px;\n  padding: 10px 12px;\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.modal-footer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 15px;\n  margin-top: 18px;\n}\n\n.points-preview {\n  color: #727561;\n  font-size: 12px;\n  font-weight: 800;\n}\n\n.save-button {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  border: none;\n  border-radius: 14px;\n  padding: 11px 17px;\n  color: #fffaf0;\n  background: linear-gradient(145deg, #748548, #506132);\n  box-shadow: 0 8px 16px rgba(66,78,37,.18);\n  font-weight: 850;\n}\n\n.ranking-period-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;margin-bottom:14px;border:1px solid rgba(86,99,51,.14);border-radius:16px;background:rgba(255,250,241,.72)}\n.ranking-period-button{border:0;border-radius:12px;padding:10px;color:#68704f;background:transparent;font-weight:800}.ranking-period-button.active{background:linear-gradient(145deg,#ffe39a,#f4c653);color:#3f491f}.delete-button{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;border:1px solid rgba(181,62,48,.24);border-radius:14px;padding:11px 17px;color:#b43b30;background:#fff8f3;font-weight:850}\n@media (max-width: 760px) {\n  .profile-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n  }\n}\n\n@media (max-width: 520px) {\n  .login-shell {\n    padding: 20px;\n    border-radius: 24px;\n  }\n\n  .app-icon {\n    width: 92px;\n    height: 92px;\n    border-radius: 24px;\n  }\n\n  .profile-grid {\n    grid-template-columns: 1fr;\n  }\n\n  .hero-panel {\n    padding: 19px;\n  }\n\n  .hero-badge {\n    width: 50px;\n    height: 50px;\n  }\n\n  .tabs {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n  }\n\n  .tab {\n    justify-content: center;\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 8px;\n  }\n\n  .day-card {\n    min-height: 108px;\n    padding: 11px;\n  }\n\n  .day-card > strong {\n    font-size: 28px;\n  }\n\n  .ranking-heading {\n    align-items: flex-start;\n    flex-direction: column;\n    gap: 3px;\n  }\n\n  .modal-footer {\n    align-items: stretch;\n    flex-direction: column;\n  }\n\n  .save-button {\n    justify-content: center;\n  }\n}\n\n.sync-message { color:#667049; font-weight:700; margin:0 0 14px; }\n\n\n.secure-login {\n  margin-top: 28px;\n  display: grid;\n  gap: 15px;\n}\n\n.login-field {\n  display: grid;\n  gap: 7px;\n}\n\n.login-field > span {\n  color: #626d43;\n  font-size: 12px;\n  font-weight: 850;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n}\n\n.login-field select,\n.password-input-wrap {\n  width: 100%;\n  border: 1px solid rgba(85,100,50,.19);\n  border-radius: 15px;\n  color: #354020;\n  background: #fffaf1;\n}\n\n.login-field select {\n  padding: 13px 14px;\n}\n\n.password-input-wrap {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 9px;\n  padding: 0 12px;\n  color: #65733f;\n}\n\n.password-input-wrap input {\n  width: 100%;\n  min-width: 0;\n  border: none;\n  outline: none;\n  padding: 13px 0;\n  color: #354020;\n  background: transparent;\n}\n\n.show-password {\n  width: 36px;\n  height: 36px;\n  border: none;\n  border-radius: 11px;\n  display: grid;\n  place-items: center;\n  color: #627043;\n  background: transparent;\n}\n\n.login-button {\n  width: 100%;\n  border: none;\n  border-radius: 15px;\n  padding: 13px 18px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  color: #fffaf0;\n  background: linear-gradient(145deg, #748548, #506132);\n  box-shadow: 0 8px 16px rgba(66,78,37,.18);\n  font-weight: 850;\n}\n\n.login-button:disabled {\n  opacity: .65;\n  cursor: wait;\n}\n`;
+.ranking-list {\n  display: grid;\n  gap: 12px;\n}\n\n.ranking-card {\n  display: grid;\n  grid-template-columns: 48px 1fr;\n  gap: 13px;\n  align-items: center;\n  padding: 15px;\n  background: rgba(255,250,241,.8);\n  border: 1px solid rgba(86,99,51,.14);\n  border-radius: 20px;\n}\n\n.rank-number {\n  width: 44px;\n  height: 44px;\n  display: grid;\n  place-items: center;\n  border-radius: 15px;\n  background: #ead8bd;\n  color: #526033;\n  font-family: Georgia, serif;\n  font-weight: 800;\n  font-size: 19px;\n}\n\n.rank-1,\n.rank-2,\n.rank-3 {\n  background: linear-gradient(145deg, #78894c, #526233);\n  color: #fff9eb;\n  box-shadow: 0 7px 14px rgba(72,81,42,.17);\n}\n\n.ranking-heading {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  align-items: center;\n}\n\n.ranking-heading strong {\n  font-size: 17px;\n}\n\n.ranking-heading span {\n  color: #556432;\n  font-weight: 850;\n}\n\n.ranking-stats {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n  margin-top: 6px;\n  color: #7a7d68;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.ranking-stats span {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n}\n\n.modal-backdrop {\n  position: fixed;\n  inset: 0;\n  z-index: 50;\n  background: rgba(38,44,27,.48);\n  display: grid;\n  place-items: center;\n  padding: 18px;\n  backdrop-filter: blur(7px);\n}\n\n.modal {\n  width: min(620px, 100%);\n  max-height: calc(100vh - 36px);\n  overflow-y: auto;\n  background: #fffaf1;\n  border: 1px solid rgba(95,105,60,.16);\n  border-radius: 28px;\n  padding: 20px;\n  box-shadow: 0 24px 80px rgba(25,30,18,.28);\n}\n\n.modal-header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n\n.modal h2 {\n  margin: 4px 0 0;\n  font-size: 30px;\n}\n\n.listening-check {\n  display: grid;\n  grid-template-columns: 34px 1fr;\n  align-items: center;\n  gap: 11px;\n  border: 1px solid rgba(89,101,54,.16);\n  border-radius: 18px;\n  padding: 14px;\n  background: #f7ead6;\n  cursor: pointer;\n}\n\n.listening-check input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n}\n\n.custom-check {\n  width: 32px;\n  height: 32px;\n  display: grid;\n  place-items: center;\n  border-radius: 11px;\n  color: transparent;\n  background: #eadcc7;\n  border: 1px solid rgba(81,94,48,.18);\n  transition: .15s ease;\n}\n\n.listening-check input:checked + .custom-check {\n  color: #fff9ed;\n  background: linear-gradient(145deg, #77894a, #4f6030);\n  box-shadow: inset 0 1px 0 rgba(255,255,255,.28);\n}\n\n.listening-check strong,\n.listening-check small {\n  display: block;\n}\n\n.listening-check small {\n  margin-top: 3px;\n  color: #747765;\n}\n\n.field {\n  display: block;\n  margin-top: 16px;\n}\n\n.field > span {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  margin-bottom: 7px;\n  font-weight: 800;\n  font-size: 13px;\n}\n\n.field b {\n  color: #6f7c49;\n  font-size: 11px;\n  text-transform: uppercase;\n  letter-spacing: .08em;\n}\n\ntextarea,\n.extra-row input {\n  width: 100%;\n  border: 1px solid rgba(84,98,50,.18);\n  border-radius: 15px;\n  padding: 12px 13px;\n  color: #323a22;\n  background: #fffdf8;\n  outline: none;\n}\n\ntextarea:focus,\n.extra-row input:focus,\n.student-picker select:focus {\n  border-color: #718148;\n  box-shadow: 0 0 0 3px rgba(113,129,72,.12);\n}\n\n.extras-section {\n  margin-top: 18px;\n  border-top: 1px solid rgba(91,101,60,.13);\n  padding-top: 17px;\n}\n\n.section-title {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: #61703e;\n  margin-bottom: 11px;\n}\n\n.section-title strong,\n.section-title span {\n  display: block;\n}\n\n.section-title span {\n  margin-top: 3px;\n  color: #7b7e6c;\n  font-size: 12px;\n}\n\n.extra-row {\n  display: grid;\n  grid-template-columns: 1fr auto;\n  gap: 8px;\n  margin-top: 9px;\n}\n\n.remove-extra {\n  width: 43px;\n  border: 1px solid rgba(80,94,46,.14);\n  border-radius: 13px;\n  background: #efe1cd;\n  color: #5d6841;\n}\n\n.add-extra {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n  margin-top: 11px;\n  border: none;\n  background: transparent;\n  color: #5f6f3c;\n  font-weight: 850;\n  padding: 7px 2px;\n}\n\n.error-message {\n  color: #7c332a;\n  background: #f6dfd7;\n  border: 1px solid #e8c6ba;\n  border-radius: 13px;\n  padding: 10px 12px;\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.modal-footer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 15px;\n  margin-top: 18px;\n}\n\n.points-preview {\n  color: #727561;\n  font-size: 12px;\n  font-weight: 800;\n}\n\n.save-button {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  border: none;\n  border-radius: 14px;\n  padding: 11px 17px;\n  color: #fffaf0;\n  background: linear-gradient(145deg, #748548, #506132);\n  box-shadow: 0 8px 16px rgba(66,78,37,.18);\n  font-weight: 850;\n}\n\n.day-status-extra-only {
+  color: #fffaf1;
+  background: linear-gradient(145deg, #a9aa9f, #777a70);
+  border: 1px solid rgba(91,94,84,.35);
+  box-shadow: 0 5px 10px rgba(70,72,65,.16), inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+.ranking-month-nav {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 11px;
+  border: 1px solid rgba(86,99,51,.14);
+  border-radius: 18px;
+  background: rgba(255,250,241,.78);
+  text-align: center;
+}
+.ranking-month-nav strong { font-family: Georgia, serif; font-size: 22px; }
+.ranking-medal {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: #ead8bd;
+  font-size: 25px;
+}
+.ranking-medal-number { color:#526033; font-family:Georgia,serif; font-size:19px; font-weight:800; }
+
+.ranking-period-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;margin-bottom:14px;border:1px solid rgba(86,99,51,.14);border-radius:16px;background:rgba(255,250,241,.72)}\n.ranking-period-button{border:0;border-radius:12px;padding:10px;color:#68704f;background:transparent;font-weight:800}.ranking-period-button.active{background:linear-gradient(145deg,#ffe39a,#f4c653);color:#3f491f}.delete-button{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;border:1px solid rgba(181,62,48,.24);border-radius:14px;padding:11px 17px;color:#b43b30;background:#fff8f3;font-weight:850}\n@media (max-width: 760px) {\n  .profile-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n  }\n}\n\n@media (max-width: 520px) {\n  .login-shell {\n    padding: 20px;\n    border-radius: 24px;\n  }\n\n  .app-icon {\n    width: 92px;\n    height: 92px;\n    border-radius: 24px;\n  }\n\n  .profile-grid {\n    grid-template-columns: 1fr;\n  }\n\n  .hero-panel {\n    padding: 19px;\n  }\n\n  .hero-badge {\n    width: 50px;\n    height: 50px;\n  }\n\n  .tabs {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n  }\n\n  .tab {\n    justify-content: center;\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 8px;\n  }\n\n  .day-card {\n    min-height: 108px;\n    padding: 11px;\n  }\n\n  .day-card > strong {\n    font-size: 28px;\n  }\n\n  .ranking-heading {\n    align-items: flex-start;\n    flex-direction: column;\n    gap: 3px;\n  }\n\n  .modal-footer {\n    align-items: stretch;\n    flex-direction: column;\n  }\n\n  .save-button {\n    justify-content: center;\n  }\n}\n\n.sync-message { color:#667049; font-weight:700; margin:0 0 14px; }\n\n\n.secure-login {\n  margin-top: 28px;\n  display: grid;\n  gap: 15px;\n}\n\n.login-field {\n  display: grid;\n  gap: 7px;\n}\n\n.login-field > span {\n  color: #626d43;\n  font-size: 12px;\n  font-weight: 850;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n}\n\n.login-field select,\n.password-input-wrap {\n  width: 100%;\n  border: 1px solid rgba(85,100,50,.19);\n  border-radius: 15px;\n  color: #354020;\n  background: #fffaf1;\n}\n\n.login-field select {\n  padding: 13px 14px;\n}\n\n.password-input-wrap {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 9px;\n  padding: 0 12px;\n  color: #65733f;\n}\n\n.password-input-wrap input {\n  width: 100%;\n  min-width: 0;\n  border: none;\n  outline: none;\n  padding: 13px 0;\n  color: #354020;\n  background: transparent;\n}\n\n.show-password {\n  width: 36px;\n  height: 36px;\n  border: none;\n  border-radius: 11px;\n  display: grid;\n  place-items: center;\n  color: #627043;\n  background: transparent;\n}\n\n.login-button {\n  width: 100%;\n  border: none;\n  border-radius: 15px;\n  padding: 13px 18px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  color: #fffaf0;\n  background: linear-gradient(145deg, #748548, #506132);\n  box-shadow: 0 8px 16px rgba(66,78,37,.18);\n  font-weight: 850;\n}\n\n.login-button:disabled {\n  opacity: .65;\n  cursor: wait;\n}\n`;
 document.head.appendChild(styleElement);
 
 const STUDENTS = [
@@ -287,8 +318,10 @@ function getEntry(data, student, key) {
 
 function statusForEntry(entry, date) {
   const validExtras = (entry.extras || []).filter((item) => item.trim());
-  if (entry.listened && entry.comment.trim() && validExtras.length > 0) return 'extra';
-  if (entry.listened && entry.comment.trim()) return 'done';
+  const validListening = Boolean(entry.listened && entry.comment?.trim());
+  if (validListening && validExtras.length > 0) return 'extra';
+  if (validListening) return 'done';
+  if (validExtras.length > 0) return 'extra-only';
 
   const endOfDay = new Date(date);
   endOfDay.setHours(23, 59, 59, 999);
@@ -297,9 +330,9 @@ function statusForEntry(entry, date) {
 }
 
 function pointsForEntry(entry) {
-  const listeningPoint = entry.listened && entry.comment.trim() ? 1 : 0;
-  const extraPoints = (entry.extras || []).filter((item) => item.trim()).length;
-  return listeningPoint + extraPoints;
+  const validListening = Boolean(entry.listened && entry.comment?.trim());
+  const extraCount = (entry.extras || []).filter((item) => item.trim()).length;
+  return (validListening ? 1 : 0) + extraCount * (validListening ? 1 : 0.5);
 }
 
 function statsForStudent(data, student) {
@@ -314,7 +347,7 @@ function statsForStudent(data, student) {
   return {
     listeningDays,
     extraTasks,
-    totalPoints: listeningDays + extraTasks
+    totalPoints: entries.reduce((sum, entry) => sum + pointsForEntry(entry), 0)
   };
 }
 
@@ -331,6 +364,14 @@ function DayStatus({ status }) {
     return (
       <span className="day-status day-status-extra" aria-label="Listening and extra completed">
         <Sparkles size={19} strokeWidth={2.5} />
+      </span>
+    );
+  }
+
+  if (status === 'extra-only') {
+    return (
+      <span className="day-status day-status-extra-only" aria-label="Extra practice only">
+        <Check size={19} strokeWidth={3} />
       </span>
     );
   }
@@ -495,12 +536,13 @@ function App() {
   };
 
   const saveDay = async () => {
-    if (!draft.listened) {
-      setError('Please confirm that you listened for at least 15 minutes.');
+    const validExtras = draft.extras.map((item) => item.trim()).filter(Boolean);
+    if (draft.listened && !draft.comment.trim()) {
+      setError('Please write what you listened to.');
       return;
     }
-    if (!draft.comment.trim()) {
-      setError('Please write what you listened to.');
+    if (!draft.listened && validExtras.length === 0) {
+      setError('Add at least one Extra Practice activity to save this day.');
       return;
     }
 
@@ -513,9 +555,9 @@ function App() {
     const payload = {
       student_name: visibleStudent,
       entry_date: key,
-      listened: true,
-      comment: draft.comment.trim(),
-      extras: draft.extras.map((item) => item.trim()).filter(Boolean),
+      listened: Boolean(draft.listened),
+      comment: draft.listened ? draft.comment.trim() : '',
+      extras: validExtras,
       updated_at: new Date().toISOString()
     };
 
@@ -797,7 +839,8 @@ function App() {
 
             <section className="legend">
               <span><DayStatus status="done" /> Listening</span>
-              <span><DayStatus status="extra" /> Extra</span>
+              <span><DayStatus status="extra" /> Listening + Extra</span>
+              <span><DayStatus status="extra-only" /> Extra only</span>
               <span><DayStatus status="missed" /> Missed</span>
             </section>
 
@@ -939,11 +982,18 @@ function App() {
           </>
         ) : (
           <section>
-            <div className="ranking-period-toggle"><button className={rankingPeriod === 'month' ? 'ranking-period-button active' : 'ranking-period-button'} onClick={() => setRankingPeriod('month')}>Current month</button><button className={rankingPeriod === 'all' ? 'ranking-period-button active' : 'ranking-period-button'} onClick={() => setRankingPeriod('all')}>All time</button></div>
+            <div className="ranking-period-toggle"><button className={rankingPeriod === 'month' ? 'ranking-period-button active' : 'ranking-period-button'} onClick={() => setRankingPeriod('month')}>By month</button><button className={rankingPeriod === 'all' ? 'ranking-period-button active' : 'ranking-period-button'} onClick={() => setRankingPeriod('all')}>All time</button></div>
+            {rankingPeriod === 'month' && (
+              <div className="ranking-month-nav">
+                <button className="month-arrow" onClick={() => changeMonth(-1)} disabled={!canGoPrevious} aria-label="Previous ranking month"><ChevronLeft size={20} /></button>
+                <strong>{monthName} {year}</strong>
+                <button className="month-arrow" onClick={() => changeMonth(1)} aria-label="Next ranking month"><ChevronRight size={20} /></button>
+              </div>
+            )}
             <div className="ranking-list">
             {ranking.map((item, index) => (
               <article className="ranking-card" key={item.student}>
-                <div className={`rank-number rank-${index + 1}`}>{index + 1}</div>
+                <div className="ranking-medal">{index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : <span className="ranking-medal-number">{index + 1}</span>}</div>
                 <div className="ranking-main">
                   <div className="ranking-heading">
                     <strong>{item.student}</strong>
@@ -1055,7 +1105,7 @@ function App() {
 
             <div className="modal-footer">
               <span className="points-preview">
-                {1 + draft.extras.filter((item) => item.trim()).length} possible points
+                {(draft.listened ? 1 : 0) + draft.extras.filter((item) => item.trim()).length * (draft.listened ? 1 : 0.5)} possible points
               </span>
               <button className="save-button" onClick={saveDay} disabled={saving}>
                 <Save size={18} />
