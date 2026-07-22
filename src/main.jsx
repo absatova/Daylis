@@ -102,7 +102,8 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 
 .monthly-student-name span {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 850;
 }
 
 .monthly-student-name small {
@@ -115,9 +116,9 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 }
 
 .monthly-day-head {
-  min-width: 48px;
-  width: 48px;
-  padding: 8px 4px;
+  min-width: 42px;
+  width: 42px;
+  padding: 7px 3px;
   text-align: center;
 }
 
@@ -138,11 +139,8 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 
 .monthly-total-head,
 .monthly-total-cell {
-  position: sticky;
-  right: 0;
-  z-index: 4;
-  min-width: 62px;
-  width: 62px;
+  min-width: 58px;
+  width: 58px;
   text-align: center;
   font-weight: 850;
 }
@@ -157,9 +155,9 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 }
 
 .monthly-cell {
-  min-width: 48px;
-  width: 48px;
-  height: 52px;
+  min-width: 42px;
+  width: 42px;
+  height: 46px;
   padding: 0;
   text-align: center;
   background: rgba(255,253,247,.68);
@@ -167,7 +165,7 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 
 .monthly-cell-button {
   width: 100%;
-  height: 52px;
+  height: 46px;
   display: grid;
   place-items: center;
   border: 0;
@@ -188,9 +186,14 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 }
 
 .monthly-cell .day-status {
-  width: 27px;
-  height: 27px;
-  border-radius: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.monthly-cell .day-status svg {
+  width: 16px;
+  height: 16px;
 }
 
 .current-student-row .monthly-student-name,
@@ -235,17 +238,22 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
   }
 
   .monthly-student-name span {
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: 850;
   }
 
   .monthly-day-head,
   .monthly-cell {
-    min-width: 43px;
-    width: 43px;
+    min-width: 39px;
+    width: 39px;
+  }
+
+  .monthly-cell {
+    height: 44px;
   }
 
   .monthly-cell-button {
-    height: 49px;
+    height: 44px;
   }
 }
 
@@ -530,6 +538,10 @@ function App() {
   }, [currentUser]);
 
   const visibleStudent = isAdmin ? viewedStudent : currentUser;
+  const orderedStudents = useMemo(() => {
+    if (isAdmin || !currentUser || !STUDENTS.includes(currentUser)) return STUDENTS;
+    return [currentUser, ...STUDENTS.filter((student) => student !== currentUser)];
+  }, [currentUser, isAdmin]);
   const monthName = new Intl.DateTimeFormat('en', { month: 'long' }).format(
     new Date(year, month, 1)
   );
@@ -953,7 +965,7 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {STUDENTS.map((student) => {
+                    {orderedStudents.map((student) => {
                       const monthPoints = days.reduce((total, day) => {
                         const entry = getEntry(data, student, dateKey(year, month, day));
                         return total + pointsForEntry(entry);
