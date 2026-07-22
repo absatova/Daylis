@@ -1,1 +1,8 @@
-Compact table, larger names, profile first
+Icon + ranking + monthly table update
+
+GitHub:
+- Replace src/main.jsx
+- Replace index.html
+
+Supabase:
+- No changes
