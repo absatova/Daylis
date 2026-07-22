@@ -1,8 +1,1 @@
-Icon + ranking + monthly table update
-
-GitHub:
-- Replace src/main.jsx
-- Replace index.html
-
-Supabase:
-- No changes
+Update Daylis app icon
