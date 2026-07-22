@@ -1,7 +1,1 @@
-Monthly Table added
-
-GitHub:
-- Replace src/main.jsx
-
-Supabase:
-- No changes
+Fix Monthly Table build
