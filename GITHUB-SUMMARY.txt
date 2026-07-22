@@ -1,1 +1,1 @@
-Fix Monthly Table build
+Add delete, yellow Extra, ranking periods
