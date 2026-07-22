@@ -280,6 +280,20 @@ styleElement.textContent = `\n:root {\n  font-family: Inter, ui-sans-serif, syst
 }
 .ranking-medal-number { color:#526033; font-family:Georgia,serif; font-size:19px; font-weight:800; }
 
+
+.ranking-medal.rank-1 {
+  background: linear-gradient(145deg, #fff2a8, #e7af20);
+  box-shadow: 0 0 0 2px rgba(255,215,80,.36), 0 0 22px rgba(255,193,39,.72), inset 0 1px 0 rgba(255,255,255,.75);
+}
+.ranking-medal.rank-2 {
+  background: linear-gradient(145deg, #f6f7f8, #aeb4bb);
+  box-shadow: 0 0 0 2px rgba(214,220,226,.42), 0 0 19px rgba(172,182,192,.58), inset 0 1px 0 rgba(255,255,255,.8);
+}
+.ranking-medal.rank-3 {
+  background: linear-gradient(145deg, #f0b56e, #a75b20);
+  box-shadow: 0 0 0 2px rgba(218,142,72,.38), 0 0 19px rgba(191,102,39,.55), inset 0 1px 0 rgba(255,255,255,.58);
+}
+
 .ranking-period-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;margin-bottom:14px;border:1px solid rgba(86,99,51,.14);border-radius:16px;background:rgba(255,250,241,.72)}\n.ranking-period-button{border:0;border-radius:12px;padding:10px;color:#68704f;background:transparent;font-weight:800}.ranking-period-button.active{background:linear-gradient(145deg,#ffe39a,#f4c653);color:#3f491f}.delete-button{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;border:1px solid rgba(181,62,48,.24);border-radius:14px;padding:11px 17px;color:#b43b30;background:#fff8f3;font-weight:850}\n@media (max-width: 760px) {\n  .profile-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n  }\n}\n\n@media (max-width: 520px) {\n  .login-shell {\n    padding: 20px;\n    border-radius: 24px;\n  }\n\n  .app-icon {\n    width: 92px;\n    height: 92px;\n    border-radius: 24px;\n  }\n\n  .profile-grid {\n    grid-template-columns: 1fr;\n  }\n\n  .hero-panel {\n    padding: 19px;\n  }\n\n  .hero-badge {\n    width: 50px;\n    height: 50px;\n  }\n\n  .tabs {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n  }\n\n  .tab {\n    justify-content: center;\n  }\n\n  .days-grid {\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 8px;\n  }\n\n  .day-card {\n    min-height: 108px;\n    padding: 11px;\n  }\n\n  .day-card > strong {\n    font-size: 28px;\n  }\n\n  .ranking-heading {\n    align-items: flex-start;\n    flex-direction: column;\n    gap: 3px;\n  }\n\n  .modal-footer {\n    align-items: stretch;\n    flex-direction: column;\n  }\n\n  .save-button {\n    justify-content: center;\n  }\n}\n\n.sync-message { color:#667049; font-weight:700; margin:0 0 14px; }\n\n\n.secure-login {\n  margin-top: 28px;\n  display: grid;\n  gap: 15px;\n}\n\n.login-field {\n  display: grid;\n  gap: 7px;\n}\n\n.login-field > span {\n  color: #626d43;\n  font-size: 12px;\n  font-weight: 850;\n  letter-spacing: .08em;\n  text-transform: uppercase;\n}\n\n.login-field select,\n.password-input-wrap {\n  width: 100%;\n  border: 1px solid rgba(85,100,50,.19);\n  border-radius: 15px;\n  color: #354020;\n  background: #fffaf1;\n}\n\n.login-field select {\n  padding: 13px 14px;\n}\n\n.password-input-wrap {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 9px;\n  padding: 0 12px;\n  color: #65733f;\n}\n\n.password-input-wrap input {\n  width: 100%;\n  min-width: 0;\n  border: none;\n  outline: none;\n  padding: 13px 0;\n  color: #354020;\n  background: transparent;\n}\n\n.show-password {\n  width: 36px;\n  height: 36px;\n  border: none;\n  border-radius: 11px;\n  display: grid;\n  place-items: center;\n  color: #627043;\n  background: transparent;\n}\n\n.login-button {\n  width: 100%;\n  border: none;\n  border-radius: 15px;\n  padding: 13px 18px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  color: #fffaf0;\n  background: linear-gradient(145deg, #748548, #506132);\n  box-shadow: 0 8px 16px rgba(66,78,37,.18);\n  font-weight: 850;\n}\n\n.login-button:disabled {\n  opacity: .65;\n  cursor: wait;\n}\n`;
 document.head.appendChild(styleElement);
 
@@ -645,11 +659,28 @@ function App() {
 
   const ranking = useMemo(() => {
     const monthPrefix = `${year}-${String(month + 1).padStart(2, '0')}-`;
-    return STUDENTS.map((student) => {
+    const sorted = STUDENTS.map((student) => {
       const all = data?.[student] || {};
-      const scoped = rankingPeriod === 'month' ? Object.fromEntries(Object.entries(all).filter(([key]) => key.startsWith(monthPrefix))) : all;
+      const scoped = rankingPeriod === 'month'
+        ? Object.fromEntries(Object.entries(all).filter(([key]) => key.startsWith(monthPrefix)))
+        : all;
       return { student, ...statsForStudent({ [student]: scoped }, student) };
-    }).sort((a,b) => b.totalPoints-a.totalPoints || b.listeningDays-a.listeningDays || a.student.localeCompare(b.student));
+    }).sort((a, b) =>
+      b.totalPoints - a.totalPoints ||
+      b.listeningDays - a.listeningDays ||
+      b.extraTasks - a.extraTasks ||
+      a.student.localeCompare(b.student)
+    );
+
+    let previousPoints = null;
+    let currentRank = 0;
+    return sorted.map((item) => {
+      if (previousPoints === null || item.totalPoints !== previousPoints) {
+        currentRank += 1;
+        previousPoints = item.totalPoints;
+      }
+      return { ...item, rank: currentRank };
+    });
   }, [data, rankingPeriod, year, month]);
 
   const selectedEntryKey = selectedDay === null ? null : dateKey(year, month, selectedDay);
@@ -895,7 +926,8 @@ function App() {
 
             <section className="legend monthly-legend">
               <span><DayStatus status="done" /> Listening</span>
-              <span><DayStatus status="extra" /> Extra</span>
+              <span><DayStatus status="extra" /> Listening + Extra</span>
+              <span><DayStatus status="extra-only" /> Only extra</span>
               <span><DayStatus status="missed" /> Missed</span>
               <span className="monthly-hint">
                 {isAdmin ? 'Tap any cell to edit.' : 'Tap a cell in your own row to edit.'}
@@ -993,7 +1025,9 @@ function App() {
             <div className="ranking-list">
             {ranking.map((item, index) => (
               <article className="ranking-card" key={item.student}>
-                <div className="ranking-medal">{index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : <span className="ranking-medal-number">{index + 1}</span>}</div>
+                <div className={`ranking-medal rank-${item.rank}`}>
+                  {item.rank === 1 ? '🥇' : item.rank === 2 ? '🥈' : item.rank === 3 ? '🥉' : <span className="ranking-medal-number">{item.rank}</span>}
+                </div>
                 <div className="ranking-main">
                   <div className="ranking-heading">
                     <strong>{item.student}</strong>
